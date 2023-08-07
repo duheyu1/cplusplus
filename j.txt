@@ -1,0 +1,51 @@
+beginning
+
+	#include <iostream>
+	using namespace std;
+	
+	class name {
+		public:
+			int n;
+		
+		public:
+			int method(int i) {
+
+			}
+		}
+	
+	int main() {
+		name ok;
+		ok.method(i);
+		cout << "ok" <<endl;
+	}
+ 
+
+int a[5];
+swap(a, b)
+max(a, b)
+min(a, b)
+sort(s.begin(), s.end())
+for(char c : string)
+
+String s
+	operation     s.size()   
+		    s[i] 
+		    s.substr(pos, length)
+		    s.push_back() (add a char to the end)
+		    s.pop_back() (remove a char from the end)
+
+unordered_set<char> s    (Hash Table)
+	s.erase()
+	s.insert()
+	s.count()  (0 or 1)
+	s.clear()
+
+unordered_map<key, value> map = { {key1, value1}, {key2, value2} };
+	value = map.at(key);
+
+vector<char>  s
+	s.size()
+	s[i]
+	s.begin()
+	s.end()
+	s.push_back(char a)   (add a to the end)
