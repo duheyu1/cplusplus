@@ -27,7 +27,7 @@ min(a, b)
 sort(s.begin(), s.end())
 for(char c : string)
 
-String s
+string s
 	operation     s.size()   
 		    s[i] 
 		    s.substr(pos, length)
