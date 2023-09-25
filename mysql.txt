@@ -1,0 +1,70 @@
+SHOW databases;
+SHOW tables;
+SHOW columns FROM (table);
+
+
+SELECT (column) FROM (table);
+SELECT (column), (column) FROM (table);
+SELECT * FROM (table);
+SELECT DISTINCT (column) FROM (table);
+SELECT (column) FROM (table）LIMIT (rows); （显示rows行）
+SELECT (column) FROM (table）LIMIT (begin row), (rows); （从begin row开始显示rows行）
+SELECT (table).(column) FROM (database).(table); （(table).(column)为完全限定名）
+
+
+SELECT (column) FROM (table) ORDER BY (column), (column); 
+SELECT (column) FROM (table) ORDER BY (column) DESC, (column); 
+SELECT (column) FROM (table) ORDER BY (column) DESC, (column) LIMIT (num); 
+
+SELECT (column) FROM (table) WHERE (condition); （条件可以是BETWEEN AND, IS NULL, =, !=, <等）
+SELECT (column) FROM (table) WHERE (condition) ORDER BY (condition);
+SELECT (column) FROM (table) WHERE (condition) AND (conditon); 
+SELECT (column) FROM (table) WHERE (condition) OR (conditon); 
+SELECT (column) FROM (table) WHERE ( (condition) OR (conditon) ) AND (condition);
+SELECT prod_name, prod_price FROM products WHERE vend_id IN (1002, 1003) ORDER BY prod_name;
+SELECT prod_name, prod_price FROM products WHERE vend_id NOT IN (1002, 1003) ORDER BY prod_name;
+
+
+SELECT prod_id, prod_name FROM products WHERE prod_ WHERE _name LIKE 'jet%'; （%表示任意长的任意字符）
+SELECT prod_id, prod_name FROM products WHERE prod__name LIKE '_ ton anvil'; （ _ 表示匹配任意一个字符）
+SELECT prod_name FROM products WHERE prod_name REGEXP '1000' ORDER BY prod_name; （REGEXP表示正则表达式）
+SELECT prod_name FROM products WHERE prod_name REGEXP '.000' ORDER BY prod_name; （ . 在正则表达式中表示匹配任意一个字符）
+SELECT prod_name FROM products WHERE prod_name REGEXP BINARY '.000' ORDER BY prod_name; （BINARY表示匹配时区分大小写）
+SELECT prod_name FROM products WHERE prod_name REGEXP '1000|2000' ORDER BY prod_name; （ | 在正则表达式中表示或）
+SELECT prod_name FROM products WHERE prod_name REGEEXP '[123] Ton' ORDER BY prod_name; （ [123] 在正则表达式中表示匹配1或2或3）
+SELECT prod_name FROM products WHERE prod_name REGEXP '[1-5] Ton' ORDER BY prod_name; （ [1-5] 在正则表达式中表示匹配1至5中的一个）
+（mysql的正则表达式中转义字符为\\）
+SELECT prod_name FROM products WHERE prod_name REGEXP '\\([0-9] sticks?\\)' ORDER BY prod_name; （\\(匹配)，[0-9]匹配任意数字（这个例子中为1和5），
+sticks?匹配stick和sticks（s后的?使s可选，因为?匹配它前面的任何字符的0次或1次出现），\\)匹配) ）
+
+
+SELECT Concat(vend_name, ' (', vend_country, ')') FROM vendors ORDER BY vend_name;
+（RTrim()函数删除数据右侧多余的空格）
+SELECT Concat(RTrim(vend_name), ' (', RTrim(vend_country), ')') AS vend_title FROM vendors ORDER BY vend_name;
+SELECT prod_id, quantity, item_price, quantity*item_price AS expanded_price FROM orderitems WHERE order_num = 20005;
+SELECT prod_id, quantity, item_price, quantity*item_price AS expanded_price FROM orderitems WHERE order_num = 20005;
+SELECT cust_id, order_num FROM orders WHERE Date(order_date) = '2005-09-01';
+SELECT cust_id, order_num FROM orders WHERE Year(order_date) = 2005 AND Month(order_date) = 9;
+
+SELECT AVG(prod_price) AS avg_price FROM products WHERE vend_id = 1003;
+SELECT COUNT(*) AS num_cust FROM customers;
+SELECT COUNT(cust_email) AS num_cust FROM customers;
+SELECT MAX(prod_price) AS max_price FROM products;
+SELECT SUM(quantity) AS items_ordered FROM orderitems WHERE order_num = 20005;
+SUM(item_price*quantity) AS total_price FROMM orderitems WHERE order_num = 20005;
+SELECT AVG(DISTINCT prod_price) AS avg_price FROM products WHERE vend_id = 1003;
+SELECT vend_id, COUNT(*) AS num_prods FROM products GROUP BY vend_id;
+SELECT cust_id, COUNT(*) AS orders FROM orders GROUP BY cust_id HAVING COUNT(*) >= 2;
+SELECT vend_id, COUNT(*) AS num_prods FROM products WHERE prod_price >= 10 GROUP BY vend_id HAVING COUNT(*) >= 2;
+SELECT order_num, SUM(quantity*item_price) AS ordertotal FROM orderitems GROUP BY order_num HAVING SUM(quantity*item_price) >= 50;
+
+SELECT vend_name, prod_name, prod_price FROM vendors, products WHERE vendors.vend_id = products.vend_id ORDER BY vend_name, prod_name;
+SELECT vend_name, prod_name, prod_price FROM vendors INNER JOIN products ON vendors.vend_id = products.vend_id;
+SELECT p1.prod_id, p1.prod_name FROM products AS p1, products AS p2 WHERE p1.vend_id = p2.vend_id AND p2.prod_id = 'DTNTR';
+SELECT customers.cust_id, orders.order_num FROM customers LEFT OUTER JOIN orders ON customers.cust_id = orders.cust_id;
+SELECT vend_id, prod_id, prod_price FROM products WHERE prod_price <= 5 UNION SELECT vend_id, prod_id, prod_price FROM products WHERE vend_id IN (1001,1002);
+
+INSERT INTO customers(cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country, cust_contact, cust_email) VALUES('Pep E. LaPew', '100 Main Street', 'Los Angeles', 'CA', '90046', 'USA', NULL, NULL);
+INSERT INTO customers(cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country) VALUES('Pep E. LaPew', '100 Main Street', 'Los Angeles', 'CA', '90046', 'USA'), ('M. Martian', '42 Galaxy Way', 'New York', 'NY', '11213', 'USA');
+UPDATE customers SET cust_name = 'The Fudds', cust_email = 'elmer@fudd.com' WHERE cust_id = 10005;
+DELETE FROM customers WHERE cust_id = 10006;
