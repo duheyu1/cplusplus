@@ -1,0 +1,4 @@
+IO库：<iostream> <fstream>（处理文件）<sstream>（处理字符串）
+顺序容器：<array> <vector> <deque> <list> <forward_list> <string>
+关联容器：<map> <set>（红黑树） <unordered_map> <unordered_set>（哈希）
+泛型算法：大部分在<algorithm>中，一般以迭代器为参数。
