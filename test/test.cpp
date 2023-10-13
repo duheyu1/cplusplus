@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "quick_sort2.h"
+#include "merge_sort_iterator.h"
 using namespace std;
 
 int main() {
@@ -10,7 +10,7 @@ int main() {
         for (int j = 0; j != 20; ++j) {
             arr[j] = rand() % 90 + 10;
         }
-        quick_sort2(arr, 0, 19);
+        merge_sort_iterator(arr, 0, 19);
         for (int j = 0; j != 20; ++j) {
             cout << arr[j] << " ";
         }
