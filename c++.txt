@@ -7,4 +7,4 @@ IO库：<iostream> <fstream>（处理文件）<sstream>（处理字符串）
 back_inserter，定义在<iterator>中，可以通过它向容器中写入数据。
 bind，定义在<functional>中，可以看作函数适配器。
 pair，定义在<utility>中。
-shared_ptr，unique_ptr，weak_ptr，make_shared，定义在<memory>中。
+shared_ptr，unique_ptr，weak_ptr，make_shared，allocator定义在<memory>中。
