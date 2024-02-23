@@ -3,5 +3,6 @@ IO库：<iostream> <fstream>（处理文件）<sstream>（处理字符串）
 关联容器：<map> <set>（红黑树） <unordered_map> <unordered_set>（哈希）
 泛型算法：大部分在<algorithm>中，一般以迭代器为参数。
 <numeric>中常用函数：accumulate
-<algorithm>中常用函数：equal, fill, fill_n, copy, replace, replace_copy, sort, unique
+<algorithm>中常用函数：equal, fill, fill_n, copy, replace, replace_copy, sort, unique, for_each, transform
 back_inserter，定义在<iterator>中，可以通过它向容器中写入数据。
+bind，定义在<functional>中，可以看作函数适配器。
