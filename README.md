@@ -6,7 +6,7 @@ example
   
 - [Chapter 2](#chapter-2)
   
-- [Chapter 3](#chapter-3)
+- [Chapter 3](#c)
   
 
 > kk
