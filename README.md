@@ -4,7 +4,7 @@ example
 
 - [Chapter 1](#Chapter 1)
   
-- [Chapter 2](#chapter-2)
+- [Ch](#chapter-2)
   
 - [Chapter 3](#Chapter 3)
   
