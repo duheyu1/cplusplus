@@ -2,7 +2,7 @@ example
 
 # # Table of Contents
 
-- [Chapter 1](#Chapter 1)
+- [Chapter 1](#Chapter-1)
   
 - [Ch](#chapter-2)
   
@@ -53,7 +53,7 @@ _kk_
 
 :heart:
 
-#### <a name="Chapter 1>Chapter 1</a>
+#### <a name="Chapter-1">Chapter 1</a>
 
 Content for chapter one.
 
